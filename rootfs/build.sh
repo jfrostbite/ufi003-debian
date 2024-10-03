@@ -22,8 +22,7 @@ wget -P ../kernel "$K_IMAGE_DEB_URL"
 mkdir debian build
 debootstrap --arch=arm64 --foreign $DIST debian https://deb.debian.org/debian/
 LANG=C LANGUAGE=C LC_ALL=C chroot debian /debootstrap/debootstrap --second-stage
-cp ../deb-pkgs/*.deb ../kernel/linux-image-*.deb chroot.sh debian/tmp/
-mv ../kernel/linux-image-*.deb debian/tmp/
+cp ../kernel/linux-image-*.deb chroot.sh debian/tmp/
 mount --bind /proc debian/proc
 mount --bind /dev debian/dev
 mount --bind /dev/pts debian/dev/pts
